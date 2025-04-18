@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #F5F5F5;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  
+  /* Header */
+  .site-header {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  
+  .nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  
+  .nav  {
+    padding: 0.5rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .cta-button {
+    padding: 0.2rem 1rem;
+    border: 1px solid #BDBDBD;
+    background: #81C784;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 3rem 0;
+    background-color:  #C3DFD0;
+  }
+  
+  .hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .hero-text {
+    flex: 1;
+  }
+  
+  .hero-image {
+    flex: 1;
+  }
+
+  .hero-image img{
+    height: 300px;
+    width: 280px ;
+    margin-left: 60px;
+  }
+  
+  .btn {
+    padding: 0.2rem 1.2rem;
+    margin-right: 0.5rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  
+  
+  /* Section Titles */
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .feature-item img {
+    width: 160px;
+    margin-bottom: 5%;
+    margin-left: 90px;
+  }
+  
+  /* Cards Section */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Call to Action Section */
+  .cta {
+    text-align: center;
+    background-color:  #69B08A;
+    padding: 2rem 1rem;
+
+  }
+  
+  .cta .btn {
+    margin-top: 1rem;
+    background-color: #81C784;
+    color: #333;
+  }
+  
+  /* Footer */
+  footer{
+    background-color:#dee2e6;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+}
+
+#lastModified{
+    color: #333;
+}
+  
+  /* Mobile Navigation Layout */
+@media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    .nav ul .cta-button {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+  
+    .cta-button {
+      align-self: flex-start;
+      background-color: #81c784;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      padding: 0.2rem 2rem;
+      margin-left: 20px;
+    }
+
+    .hero-grid {
+        flex-direction: column;
+      }
+
+    .hero-image img{
+      margin-left: 5px;
+    }  
+      
+    .feature-item img{
+        margin-left: 32%;
+        
+    } 
+  }
