@@ -1,68 +1,65 @@
-// Set the current year and last modified date in the footer
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Modification: ${document.lastModified}`;
+const yearNode = document.getElementById("currentyear");
+const lastModifiedNode = document.getElementById("lastModified");
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.getElementById("site-nav");
 
-// Show a welcome message at the top of the page
-function showWelcomeMessage() {
-  const welcome = document.createElement('div');
-  welcome.textContent = getGreeting();
-  welcome.className = 'welcome-banner';
-  document.body.prepend(welcome);
+if (yearNode) {
+  yearNode.textContent = new Date().getFullYear();
 }
 
-// Return a greeting message based on the time of day
-function getGreeting() {
-  const hour = new Date().getHours();
-  if (hour < 12) return '🌅 Bonjour et bienvenue dans votre solution de nettoyage🫧';
-  if (hour < 18) return '🌞 Bonjour nous espèrons que vous passez une bonne journée ';
-  return '🌙 Bonsoir et merci de votre visite';
+if (lastModifiedNode) {
+  lastModifiedNode.textContent = `Derniere mise a jour: ${document.lastModified}`;
 }
 
-// Dummy card data (used only if you have a section to display services)
-const cardData = [
-  { title: 'Nettoyage de bureau', desc: 'Client satisfait✅', img: 'image/experience2.png' },
-  { title: 'Collecte des déchets', desc: 'Client satisfait✅', img: 'image/experience1.png' },
-  { title: 'Recyclage', desc: 'Client satisfait✅', img: 'image/experience3.png' }
-];
-
-// Dynamically populate service cards (if .cards-grid section exists)
-function populateCards() {
-  const cardSection = document.querySelector('.cards-grid');
-  if (!cardSection) return;
-
-  cardSection.innerHTML = '';
-  cardData.forEach(card => {
-    cardSection.innerHTML += `
-      <div class="card">
-        <img src="${card.img}" alt="${card.title}" loading="lazy" />
-        <h3>${card.title}</h3>
-        <p>${card.desc}</p>
-      </div>
-    `;
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    document.body.classList.toggle("nav-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
-// Run this code when the page has fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  showWelcomeMessage();
-  populateCards();
+const revealTargets = document.querySelectorAll(
+  ".service-card, .audience-card, .gallery-card, .detail-card, .process-card, .product-card, .faq-card, .timeline-card, .commitment-card"
+);
 
-  // Initialize EmailJS with your public key
+if ("IntersectionObserver" in window && revealTargets.length > 0) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16 }
+  );
+
+  revealTargets.forEach((node) => observer.observe(node));
+}
+
+if (typeof emailjs !== "undefined") {
   emailjs.init("LPlQ6mTEaqauPp-P9");
 
-  // Handle form submission
   const form = document.getElementById("contact-form");
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+  const statusNode = document.getElementById("form-status");
 
-    // Send the form data using EmailJS
-    emailjs.sendForm("service_ye8qwrk", "template_ksgadah", this)
-      .then(() => {
-        document.getElementById("form-status").innerText = "✅ Message envoyé avec succès.";
-        this.reset(); // Clear form after success
-      }, (error) => {
-        document.getElementById("form-status").innerText = "❌ Échec de l'envoi du message.";
-        console.error("EmailJS Error:", error);
-      });
-  });
-});
+  if (form && statusNode) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      statusNode.textContent = "Envoi en cours...";
+
+      emailjs.sendForm("service_ye8qwrk", "template_ksgadah", this).then(
+        () => {
+          statusNode.textContent = "Votre message a ete envoye avec succes.";
+          this.reset();
+        },
+        (error) => {
+          statusNode.textContent = "L'envoi a echoue. Merci de reessayer ou de nous appeler directement.";
+          console.error("EmailJS Error:", error);
+        }
+      );
+    });
+  }
+}
