@@ -40,20 +40,47 @@ if ("IntersectionObserver" in window && revealTargets.length > 0) {
 }
 
 if (typeof emailjs !== "undefined") {
-  emailjs.init("LPlQ6mTEaqauPp-P9");
+  emailjs.init("nyNjo9NkAUQM_UOw7");
 
   const forms = document.querySelectorAll(".emailjs-form");
 
   forms.forEach((form) => {
     const statusId = form.getAttribute("data-status-target");
     const statusNode = statusId ? document.getElementById(statusId) : null;
-    const serviceId = form.getAttribute("data-emailjs-service") || "service_ye8qwrk";
-    const templateId = form.getAttribute("data-emailjs-template") || "template_ksgadah";
+    const serviceId = form.getAttribute("data-emailjs-service") || "service_gnc0ndl";
+    const templateId = form.getAttribute("data-emailjs-template") || "template_zla39td";
     if (!statusNode) return;
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       statusNode.textContent = "Envoi en cours...";
+
+      const ensureHiddenField = (name, value) => {
+        let input = this.querySelector(`input[name="${name}"]`);
+        if (!input) {
+          input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          this.appendChild(input);
+        }
+        input.value = value;
+      };
+
+      const userName = this.querySelector('[name="user_name"]')?.value || "";
+      const userEmail = this.querySelector('[name="user_email"]')?.value || "";
+      const userPhone = this.querySelector('[name="user_phone"]')?.value || "";
+      const userAddress = this.querySelector('[name="user_address"]')?.value || "";
+      const participantCount = this.querySelector('[name="participant_count"]')?.value || "";
+      const serviceType = this.querySelector('[name="service_type"]')?.value || "";
+
+      // Fallback fields that help when the EmailJS template still references older variables.
+      ensureHiddenField("name", userName);
+      ensureHiddenField("email", userEmail);
+      ensureHiddenField("phone", userPhone);
+      ensureHiddenField("address", userAddress);
+      ensureHiddenField("participants", participantCount);
+      ensureHiddenField("service", serviceType);
+      ensureHiddenField("time", new Date().toLocaleString("fr-FR"));
 
       emailjs.sendForm(serviceId, templateId, this).then(
         () => {
@@ -61,7 +88,8 @@ if (typeof emailjs !== "undefined") {
           this.reset();
         },
         (error) => {
-          statusNode.textContent = "L'envoi a échoué. Merci de réessayer ou de nous appeler directement.";
+          const detail = error?.text || error?.message || "Erreur inconnue";
+          statusNode.textContent = `L'envoi a échoué : ${detail}`;
           console.error("EmailJS Error:", error);
         }
       );
