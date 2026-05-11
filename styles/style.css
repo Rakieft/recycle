@@ -457,7 +457,11 @@ img {
 .commitment-card,
 .faq-card,
 .product-card,
-.testimonial-card {
+.testimonial-card,
+.team-card,
+.event-card,
+.rsvp-card,
+.event-photo-card {
   padding: 1.5rem;
   border-radius: var(--radius-md);
 }
@@ -472,6 +476,161 @@ img {
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--text-soft);
+}
+
+.section-heading-with-action {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.carousel-button {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.team-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(250px, 1fr);
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.team-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.team-carousel::-webkit-scrollbar-thumb {
+  background: rgba(16, 35, 26, 0.2);
+  border-radius: 999px;
+}
+
+.team-card,
+.event-card,
+.rsvp-card,
+.event-photo-card {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.team-card {
+  scroll-snap-align: start;
+}
+
+.team-photo {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+}
+
+.team-role {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 1.5rem;
+}
+
+.event-card ul {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-soft);
+}
+
+.event-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.event-meta div {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid var(--line);
+}
+
+.event-meta strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.events-gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.events-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.events-gallery::-webkit-scrollbar-thumb {
+  background: rgba(16, 35, 26, 0.2);
+  border-radius: 999px;
+}
+
+.event-photo-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+}
+
+.event-photo-card--gallery {
+  padding: 0.75rem;
+  border-radius: 28px;
+  scroll-snap-align: start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(237, 243, 235, 0.92));
+}
+
+.event-photo-card--gallery img {
+  height: 340px;
+  margin-bottom: 0;
+  border-radius: 22px;
+}
+
+#event-status {
+  margin-top: 1rem;
+  min-height: 1.5rem;
+  color: var(--primary-deep);
+  font-weight: 700;
 }
 
 .service-icon {
@@ -691,6 +850,7 @@ select:focus {
   .hero-grid,
   .split-section,
   .contact-layout,
+  .event-grid,
   .promo-band,
   .service-grid,
   .audience-grid,
@@ -701,7 +861,8 @@ select:focus {
   .commitment-grid,
   .faq-grid,
   .product-grid,
-  .service-detail-grid {
+  .service-detail-grid,
+  .photo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -758,6 +919,7 @@ select:focus {
   .hero-grid,
   .split-section,
   .contact-layout,
+  .event-grid,
   .promo-band,
   .service-grid,
   .audience-grid,
@@ -769,7 +931,21 @@ select:focus {
   .commitment-grid,
   .faq-grid,
   .product-grid,
-  .service-detail-grid {
+  .service-detail-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .events-gallery {
+    grid-auto-columns: minmax(240px, 82vw);
+  }
+
+  .section-heading-with-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .event-meta {
     grid-template-columns: 1fr;
   }
 

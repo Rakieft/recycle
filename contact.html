@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:title" content="Contact | Recyclonet" />
-  <meta property="og:description" content="Demandez un devis Recyclonet pour collecte, nettoyage, recyclage ou produits d'entretien." />
+  <meta
+    property="og:description"
+    content="Demandez un devis Recyclonet pour la collecte, le nettoyage, le recyclage, la formation ou les produits d'entretien."
+  />
   <meta property="og:image" content="image/hero.png" />
   <meta
     name="description"
-    content="Contactez Recyclonet pour un devis de collecte des dechets, nettoyage professionnel, recyclage ou produits d'entretien."
+    content="Contactez Recyclonet pour un devis de collecte des déchets, nettoyage professionnel, recyclage, formation ou produits d'entretien."
   />
   <meta name="author" content="Kieft Raphter Joly" />
   <title>Contact | Recyclonet</title>
@@ -42,6 +45,7 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="about.html">Entreprise</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="events.html">Formations</a></li>
             <li><a href="products.html">Produits</a></li>
             <li><a class="active" href="contact.html">Contact</a></li>
           </ul>
@@ -54,9 +58,9 @@
       <section class="page-hero">
         <div class="container narrow">
           <p class="eyebrow">Parlons de votre besoin</p>
-          <h1>Demandez votre devis et voyons comment rendre votre espace plus propre et plus agreable</h1>
+          <h1>Demandez votre devis et voyons comment rendre votre espace plus propre et plus agréable</h1>
           <p class="lead">
-            Nous sommes la pour vous aider a trouver la solution la plus simple et la plus adaptee,
+            Nous sommes là pour vous aider à trouver la solution la plus simple et la plus adaptée,
             que vous soyez un particulier, un commerce, un bureau ou une institution.
           </p>
         </div>
@@ -66,7 +70,13 @@
         <div class="container contact-layout">
           <div class="contact-card">
             <h2>Envoyer votre demande</h2>
-            <form id="contact-form">
+            <form
+              id="contact-form"
+              class="emailjs-form"
+              data-status-target="form-status"
+              data-emailjs-service="service_ye8qwrk"
+              data-emailjs-template="template_ksgadah"
+            >
               <div class="field-grid">
                 <div>
                   <label for="name">Nom complet</label>
@@ -80,16 +90,17 @@
 
               <div class="field-grid">
                 <div>
-                  <label for="phone">Telephone</label>
+                  <label for="phone">Téléphone</label>
                   <input type="tel" id="phone" name="user_phone" placeholder="(+509) ..." required />
                 </div>
                 <div>
-                  <label for="service">Service souhaite</label>
+                  <label for="service">Service souhaité</label>
                   <select id="service" name="service_type" required>
                     <option value="">Choisir un service</option>
-                    <option value="collecte">Collecte des dechets</option>
+                    <option value="collecte">Collecte des déchets</option>
                     <option value="nettoyage">Nettoyage professionnel</option>
                     <option value="recyclage">Tri et recyclage</option>
+                    <option value="formation">Formation</option>
                     <option value="produits">Produits de nettoyage</option>
                   </select>
                 </div>
@@ -97,11 +108,11 @@
 
               <div>
                 <label for="address">Adresse ou zone d'intervention</label>
-                <input type="text" id="address" name="user_address" placeholder="Petion-Ville, Delmas, etc." required />
+                <input type="text" id="address" name="user_address" placeholder="Pétion-Ville, Delmas, etc." required />
               </div>
 
               <div>
-                  <label for="message">Votre besoin</label>
+                <label for="message">Votre besoin</label>
                 <textarea
                   id="message"
                   name="message"
@@ -111,33 +122,37 @@
                 ></textarea>
               </div>
 
+              <input type="hidden" name="form_name" value="Demande de devis - Site Recyclonet" />
+              <input type="hidden" name="submission_source" value="Page contact" />
+              <input type="hidden" name="to_email" value="recyclonet@gmail.com" />
+
               <button type="submit" class="button button-primary button-full">Recevoir mon accompagnement</button>
             </form>
             <p id="form-status" aria-live="polite"></p>
           </div>
 
           <aside class="contact-info-panel">
-            <h2>Coordonnees</h2>
+            <h2>Coordonnées</h2>
             <ul class="info-list">
-              <li><strong>Telephone:</strong> <a href="tel:+50936672901">(+509) 3667-2901</a></li>
+              <li><strong>Téléphone:</strong> <a href="tel:+50936672901">(+509) 3667-2901</a></li>
               <li><strong>WhatsApp:</strong> <a href="tel:+50955344834">(+509) 5534-4834</a></li>
               <li><strong>Email:</strong> <a href="mailto:recyclonet@gmail.com">recyclonet@gmail.com</a></li>
-              <li><strong>Adresse:</strong> 43 Rue d'Arguin, Petion-Ville</li>
+              <li><strong>Adresse:</strong> 43 Rue d'Arguin, Pétion-Ville</li>
             </ul>
 
             <div class="contact-note">
               <p class="eyebrow">Pour qui</p>
-              <p>Pour tous ceux qui veulent un service propre, ponctuel et serieux pour leur maison, leur bureau ou leur activite.</p>
+              <p>Pour tous ceux qui veulent un service propre, ponctuel et sérieux pour leur maison, leur bureau ou leur activité.</p>
             </div>
 
             <div class="contact-note">
               <p class="eyebrow">Ce que nous pouvons faire</p>
-              <p>Intervention ponctuelle, contrat regulier, collecte, nettoyage, recyclage ou informations sur la future gamme de produits.</p>
+              <p>Intervention ponctuelle, contrat régulier, collecte, nettoyage, recyclage, formation ou informations sur la future gamme de produits.</p>
             </div>
 
             <div class="contact-note">
               <p class="eyebrow">Horaires de contact</p>
-              <p>Lundi a samedi, selon disponibilite. Pour les urgences ou demandes rapides, WhatsApp reste le canal le plus direct.</p>
+              <p>Lundi à samedi, selon disponibilité. Pour les urgences ou demandes rapides, WhatsApp reste le canal le plus direct.</p>
             </div>
           </aside>
         </div>
@@ -148,16 +163,16 @@
       <div class="container footer-grid">
         <div>
           <strong>Recyclonet</strong>
-          <p>Collecte des dechets, nettoyage et recyclage pour un environnement plus sain.</p>
+          <p>Collecte des déchets, nettoyage, recyclage et formations pour un environnement plus sain.</p>
         </div>
         <div>
-          <p>Petion-Ville, Haiti</p>
+          <p>Pétion-Ville, Haïti</p>
           <p><a href="tel:+50936672901">(+509) 3667-2901</a></p>
           <p><a href="mailto:recyclonet@gmail.com">recyclonet@gmail.com</a></p>
         </div>
         <div>
           <p>&copy; <span id="currentyear"></span> Recyclonet</p>
-          <p><a href="privacy.html">Confidentialite</a> | <a href="legal.html">Informations legales</a></p>
+          <p><a href="privacy.html">Confidentialité</a> | <a href="legal.html">Informations légales</a></p>
           <p id="lastModified"></p>
         </div>
       </div>
