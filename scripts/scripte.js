@@ -41,14 +41,16 @@ if ("IntersectionObserver" in window && revealTargets.length > 0) {
 
 if (typeof emailjs !== "undefined") {
   emailjs.init("nyNjo9NkAUQM_UOw7");
+  const EMAILJS_SERVICE_ID = "service_gnc0ndl";
+  const EMAILJS_TEMPLATE_ID = "template_zla39td";
 
   const forms = document.querySelectorAll(".emailjs-form");
 
   forms.forEach((form) => {
     const statusId = form.getAttribute("data-status-target");
     const statusNode = statusId ? document.getElementById(statusId) : null;
-    const serviceId = form.getAttribute("data-emailjs-service") || "service_gnc0ndl";
-    const templateId = form.getAttribute("data-emailjs-template") || "template_zla39td";
+    const serviceId = EMAILJS_SERVICE_ID;
+    const templateId = EMAILJS_TEMPLATE_ID;
     if (!statusNode) return;
 
     form.addEventListener("submit", function (event) {

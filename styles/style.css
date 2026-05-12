@@ -218,7 +218,9 @@ img {
 
 .hero-grid,
 .split-section,
-.contact-layout {
+.contact-layout,
+.product-order-layout,
+.media-sens-section {
   display: grid;
   gap: 2rem;
 }
@@ -777,6 +779,80 @@ img {
   align-items: start;
 }
 
+.product-order-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  align-items: start;
+}
+
+.video-card {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+  border-radius: 28px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.video-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.video-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  border-radius: 22px;
+  border: 1px dashed rgba(16, 35, 26, 0.2);
+  background:
+    linear-gradient(135deg, rgba(15, 107, 67, 0.08), rgba(211, 166, 79, 0.08)),
+    #ffffff;
+  color: var(--text-soft);
+  text-align: center;
+  padding: 1.25rem;
+  font-weight: 700;
+}
+
+.embedded-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 320px;
+  border-radius: 22px;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.video-note {
+  margin: 1rem 0 0;
+  color: var(--text-soft);
+}
+
+.product-grid-rich {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-card-rich {
+  position: relative;
+  overflow: hidden;
+}
+
+.price-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--primary-deep);
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(16, 35, 26, 0.12);
+}
+
 form {
   display: grid;
   gap: 1rem;
@@ -850,6 +926,8 @@ select:focus {
   .hero-grid,
   .split-section,
   .contact-layout,
+  .product-order-layout,
+  .media-sens-section,
   .event-grid,
   .promo-band,
   .service-grid,
@@ -862,7 +940,10 @@ select:focus {
   .faq-grid,
   .product-grid,
   .service-detail-grid,
-  .photo-grid {
+  .photo-grid,
+  .video-grid,
+  .product-grid-rich,
+  .video-grid-three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -919,6 +1000,8 @@ select:focus {
   .hero-grid,
   .split-section,
   .contact-layout,
+  .product-order-layout,
+  .media-sens-section,
   .event-grid,
   .promo-band,
   .service-grid,
@@ -932,7 +1015,10 @@ select:focus {
   .faq-grid,
   .product-grid,
   .service-detail-grid,
-  .photo-grid {
+  .photo-grid,
+  .video-grid,
+  .product-grid-rich,
+  .video-grid-three {
     grid-template-columns: 1fr;
   }
 
