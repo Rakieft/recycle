@@ -1017,9 +1017,12 @@ select:focus {
   .service-detail-grid,
   .photo-grid,
   .video-grid,
-  .product-grid-rich,
   .video-grid-three {
     grid-template-columns: 1fr;
+  }
+
+  .product-grid-rich {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .events-gallery {
