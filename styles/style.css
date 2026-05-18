@@ -1100,3 +1100,9 @@ select:focus {
     text-align: left;
   }
 }
+
+@media (max-width: 900px) {
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

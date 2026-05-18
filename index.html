@@ -28,7 +28,18 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles/style.css?v=20260512" />
+  <link rel="stylesheet" href="styles/style.css?v=20260517" />
+  <style>
+    @media (max-width: 900px) {
+      .faq-grid-mobile-stack {
+        grid-template-columns: 1fr !important;
+      }
+
+      .testimonial-grid-mobile-stack {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="site-shell">
@@ -296,7 +307,7 @@
             <h2>Des arguments qui rassurent avant le premier rendez-vous</h2>
           </div>
 
-          <div class="testimonial-grid">
+          <div class="testimonial-grid testimonial-grid-mobile-stack">
             <article class="testimonial-card">
               <p>
                 "Le service a été organisé, rapide et respectueux. Notre espace était nettement plus propre après l'intervention."
@@ -325,7 +336,7 @@
             <p class="eyebrow">Questions fréquentes</p>
           </div>
 
-          <div class="faq-grid">
+          <div class="faq-grid faq-grid-mobile-stack">
             <article class="faq-card">
               <h3>Comment demander une intervention ?</h3>
               <p>Il suffit de nous contacter via le formulaire, WhatsApp ou téléphone pour décrire votre besoin.</p>
