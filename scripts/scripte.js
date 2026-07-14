@@ -41,7 +41,7 @@ if ("IntersectionObserver" in window && revealTargets.length > 0) {
 
 if (typeof emailjs !== "undefined") {
   emailjs.init("nyNjo9NkAUQM_UOw7");
-  const EMAILJS_SERVICE_ID = "service_gnc0ndl";
+  const EMAILJS_SERVICE_ID = "service_ec8xt88";
   const EMAILJS_TEMPLATE_ID = "template_zla39td";
 
   const forms = document.querySelectorAll(".emailjs-form");
