@@ -49,8 +49,8 @@ if (typeof emailjs !== "undefined") {
   forms.forEach((form) => {
     const statusId = form.getAttribute("data-status-target");
     const statusNode = statusId ? document.getElementById(statusId) : null;
-    const serviceId = EMAILJS_SERVICE_ID;
-    const templateId = EMAILJS_TEMPLATE_ID;
+    const serviceId = form.getAttribute("data-emailjs-service") || EMAILJS_SERVICE_ID;
+    const templateId = form.getAttribute("data-emailjs-template") || EMAILJS_TEMPLATE_ID;
     if (!statusNode) return;
 
     form.addEventListener("submit", function (event) {
@@ -117,3 +117,4 @@ carouselNextButtons.forEach((button) => {
     target.scrollBy({ left: 280, behavior: "smooth" });
   });
 });
+

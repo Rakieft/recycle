@@ -1201,3 +1201,14 @@ select:focus {
     grid-template-columns: 1fr;
   }
 }
+
+
+.hero-card img.conference-poster-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background: #ffffff;
+}
+
